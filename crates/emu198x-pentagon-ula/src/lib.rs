@@ -12,10 +12,10 @@
 //! Crystal: 14.336 MHz (slightly faster than the 48K's 14 MHz).
 //! CPU clock: 3.584 MHz. Frame: 224 T-states/line × 320 lines = 71,680 T.
 
-use common_sinclair_zx_spectrum::memory::MemoryBus;
-use common_sinclair_zx_spectrum::timing::{self, FrameTiming};
-use common_sinclair_zx_spectrum::ula::Ula;
-use common_sinclair_zx_spectrum::ula_engine::{self, UlaEngine};
+use emu198x_bus_sinclair_zx_spectrum::MemoryBus;
+use emu198x_bus_sinclair_zx_spectrum::Ula;
+use emu198x_bus_sinclair_zx_spectrum::timing::{self, FrameTiming};
+use emu198x_sinclair_zx_spectrum_ula::{self as ula_engine, UlaEngine};
 
 #[derive(Clone, serde::Serialize, serde::Deserialize)]
 pub struct PentagonUla {

@@ -22,10 +22,10 @@
 //! and compare instruction timings, which belongs with the contention
 //! oracles, not here.
 
-use common_sinclair_zx_spectrum::memory::MemoryBus;
-use common_sinclair_zx_spectrum::timing::{SCREEN_HEIGHT, SCREEN_WIDTH};
-use common_sinclair_zx_spectrum::ula::Ula;
-use pentagon_ula::PentagonUla;
+use emu198x_bus_sinclair_zx_spectrum::MemoryBus;
+use emu198x_bus_sinclair_zx_spectrum::Ula;
+use emu198x_bus_sinclair_zx_spectrum::timing::{SCREEN_HEIGHT, SCREEN_WIDTH};
+use emu198x_pentagon_ula::PentagonUla;
 
 /// Reports every address as contended, so a machine that consults
 /// contention at all has every opportunity to withhold the clock.
