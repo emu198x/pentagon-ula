@@ -1,8 +1,8 @@
 # emu198x-pentagon-ula
 
 The Pentagon 128's ULA, from the Russian Spectrum clone. It never gates the
-CPU clock, so there is no contention, and it runs its own longer frame from
-a 14.336 MHz crystal.
+CPU clock, so there is no contention. It runs the 48K's 3.5 MHz CPU over its
+own longer frame of 71,680 T-states, which refreshes at 48.83 Hz.
 
 It implements the `Ula` trait from `emu198x-bus-sinclair-zx-spectrum` over the
 shared video engine in `emu198x-sinclair-zx-spectrum-ula`, and adds the

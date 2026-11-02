@@ -9,8 +9,10 @@
 //! no I/O contention, no internal-op contention. Programs that race the
 //! beam on a real Spectrum have to be timed differently for the Pentagon.
 //!
-//! Crystal: 14.336 MHz (slightly faster than the 48K's 14 MHz).
-//! CPU clock: 3.584 MHz. Frame: 224 T-states/line × 320 lines = 71,680 T.
+//! Crystal: 14 MHz, the 48K's. CPU clock: 3.5 MHz. Frame: 224 T-states/line
+//! × 320 lines = 71,680 T, which lasts 20.48 ms: the Pentagon's 48.83 Hz
+//! refresh. (14.336 MHz is the ZX Spectrum Next's VGA 50Hz Pentagon mode,
+//! not the original machine; see the bus crate's `TIMING_PENTAGON`.)
 
 use emu198x_bus_sinclair_zx_spectrum::MemoryBus;
 use emu198x_bus_sinclair_zx_spectrum::Ula;
@@ -116,7 +118,7 @@ mod tests {
     fn frame_timing_matches_pentagon_constants() {
         let u = PentagonUla::new();
         let t = u.frame_timing();
-        assert_eq!(t.master_hz, 14_336_000);
+        assert_eq!(t.master_hz / u64::from(t.cpu_divisor), 3_500_000);
         assert_eq!(t.cpu_divisor, 4);
         assert_eq!(t.tstates_per_line, 224);
         assert_eq!(t.lines_per_frame, 320);
